@@ -9,10 +9,14 @@ const Button = ({clicking, text}) => <button onClick={clicking}>{text}</button>
 function App() {
   
   const [counter, setCounter] = useState(0);
+  const [time, setTime] = useState(0);
   
   const incrementByOne = () => {setCounter(counter + 1)};
   const decreaseByOne = () => {setCounter(counter - 1)};
   const setToZero = () => {setCounter(0)};
+
+  setTimeout(()=> setTime(time + 1),1000);
+
 
   return (
     <div>
@@ -24,6 +28,8 @@ function App() {
           <Button clicking={incrementByOne} text='Incrementar'/>
 
         </div>
+      
+      <Display counter={time}/>
     </div>
   );
 }
